@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import MenuItem from '../menu-item/menu-item.component'
 import './directory.styles.scss'
-import { data } from './data'
+import { HOMEPAGE_DATA } from './homepageData'
 
 export default function Directory() {
-  const [sections] = useState(data)
+  const [sections] = useState(HOMEPAGE_DATA)
 
   return (
     <div className='directory-menu'>

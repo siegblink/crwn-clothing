@@ -1,4 +1,4 @@
-export const data = [
+export const HOMEPAGE_DATA = [
   {
     title: 'hats',
     imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
