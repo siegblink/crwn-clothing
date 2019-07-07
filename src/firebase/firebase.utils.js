@@ -1,15 +1,29 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+import { config } from '../config'
 
-const config = {
-  apiKey: 'AIzaSyCJVw_SriTRifr8iWx28qIeme5S0pUWLPk',
-  authDomain: 'crwn-db-c7613.firebaseapp.com',
-  databaseURL: 'https://crwn-db-c7613.firebaseio.com',
-  projectId: 'crwn-db-c7613',
-  storageBucket: '',
-  messagingSenderId: '142269347198',
-  appId: '1:142269347198:web:6603464a79113a57',
+export async function createUserProfileDocument(userAuth, additionalData) {
+  if (!userAuth) return
+  const userRef = firestore.doc(`users/${userAuth.uid}`)
+  const snapshot = await userRef.get()
+  if (!snapshot.exists) {
+    const { displayName, email } = userAuth
+    const createdAt = new Date()
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      })
+    } catch (error) {
+      console.log('error creating user', error.message)
+    }
+  }
+
+  return userRef
 }
 
 firebase.initializeApp(config)

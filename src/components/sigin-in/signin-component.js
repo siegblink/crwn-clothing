@@ -4,7 +4,7 @@ import FormInput from '../form-input/form-input.component'
 import CustomButton from '../../components/custom-button/custom-button.component'
 import { signInWithGoogle } from '../../firebase/firebase.utils'
 
-export default function SigIn() {
+export default function SignIn() {
   const [state, setState] = useState({ email: '', password: '' })
 
   function handleSubmit(event) {
