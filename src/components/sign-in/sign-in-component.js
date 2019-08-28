@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './signin-styles.scss'
+import './sign-in-styles.scss'
 import FormInput from '../form-input/form-input.component'
-import CustomButton from '../../components/custom-button/custom-button.component'
+import CustomButton from '../custom-button/custom-button.component'
 import { signInWithGoogle } from '../../firebase/firebase.utils'
 
 export default function SignIn() {
@@ -18,8 +18,8 @@ export default function SignIn() {
   }
 
   return (
-    <div className='sign-in title'>
-      <h2 className=''>I already have an account</h2>
+    <div className='sign-in'>
+      <h2 className='title'>I already have an account</h2>
       <span>Sign in with your email and password</span>
 
       <form onSubmit={handleSubmit}>

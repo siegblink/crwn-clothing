@@ -1,6 +1,6 @@
 import React from 'react'
-import './sigin-in-and-sign-up.styles.scss'
-import SignIn from '../../components/sigin-in/signin-component'
+import './sign-in-and-sign-up.styles.scss'
+import SignIn from '../../components/sign-in/sign-in-component'
 import SignUp from '../../components/sign-up/sign-up.component'
 
 export default function SignInAndSignUpPage() {
