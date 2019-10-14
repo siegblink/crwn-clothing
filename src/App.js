@@ -12,9 +12,7 @@ export default function App() {
   const [user, setUser] = useState({})
 
   useEffect(function() {
-    const unsubscribeFromAuth = auth.onAuthStateChanged(async function(
-      userAuth
-    ) {
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async function(userAuth) {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
 

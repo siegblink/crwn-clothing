@@ -22,7 +22,6 @@ export async function createUserProfileDocument(userAuth, additionalData) {
       console.log('error creating user', error.message)
     }
   }
-
   return userRef
 }
 
