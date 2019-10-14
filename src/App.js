@@ -1,5 +1,6 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 import './App.css'
 
 import Homepage from './pages/homepage/homepage.component'
@@ -7,32 +8,33 @@ import ShopPage from './pages/shop/shop.component'
 import Header from './components/header/header.component'
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import { setCurrentUser } from './redux/user/user.actions.js'
 
-export default function App() {
-  const [user, setUser] = useState({})
+function App(props) {
+  const { setCurrentUser } = props
 
-  useEffect(function() {
-    const unsubscribeFromAuth = auth.onAuthStateChanged(async function(userAuth) {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth)
-
-        userRef.onSnapshot(function(snapShot) {
-          setUser({ id: snapShot.id, ...snapShot.data() })
-        })
-      } else {
-        setUser(userAuth)
+  useEffect(
+    function() {
+      const unsubscribeFromAuth = auth.onAuthStateChanged(async function(userAuth) {
+        if (userAuth) {
+          const userRef = await createUserProfileDocument(userAuth)
+          userRef.onSnapshot(function(snapShot) {
+            setCurrentUser({ id: snapShot.id, ...snapShot.data() })
+          })
+        } else {
+          setCurrentUser(userAuth)
+        }
+      })
+      return function() {
+        unsubscribeFromAuth()
       }
-    })
+    },
+    [setCurrentUser]
+  )
 
-    return function() {
-      unsubscribeFromAuth()
-    }
-  }, [])
-
-  console.log(user)
   return (
     <Fragment>
-      <Header currentUser={user} />
+      <Header />
       <Switch>
         <Route exact path='/' component={Homepage} />
         <Route path='/shop' component={ShopPage} />
@@ -41,3 +43,8 @@ export default function App() {
     </Fragment>
   )
 }
+
+export default connect(
+  null,
+  { setCurrentUser }
+)(App)
