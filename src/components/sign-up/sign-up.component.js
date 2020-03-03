@@ -45,14 +45,14 @@ export default function SignUp() {
   return (
     <div className='sign-up'>
       <h2 className='title'>I do not have an account</h2>
-      <span>Sign up with your email and password</span>
+      <span>Sign up with your email and password.</span>
       <form className='sign-up-form' onSubmit={handleSubmit}>
         <FormInput
           type='text'
           name='displayName'
           value={displayName}
           onChange={handleChange}
-          label='Display Name'
+          label='Display name'
           required
         />
         <FormInput
@@ -76,10 +76,10 @@ export default function SignUp() {
           name='confirmPassword'
           value={confirmPassword}
           onChange={handleChange}
-          label='Confirm Password'
+          label='Confirm password'
           required
         />
-        <CustomButton type='submit'>SIGN UP</CustomButton>
+        <CustomButton type='submit'>Sign up</CustomButton>
       </form>
     </div>
   )

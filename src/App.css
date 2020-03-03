@@ -3,11 +3,12 @@
 }
 
 body {
-  font-family: 'Open Sans Condensed';
+  font-family: 'Open Sans', sans-serif;
+  color: hsl(0, 0%, 25%);
   padding: 20px 60px;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: hsl(0, 0%, 25%);
 }

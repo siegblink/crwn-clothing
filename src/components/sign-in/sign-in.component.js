@@ -27,7 +27,7 @@ export default function SignIn() {
   return (
     <div className='sign-in'>
       <h2 className='title'>I already have an account</h2>
-      <span>Sign in with your email and password</span>
+      <span>Sign in with your email and password.</span>
 
       <form onSubmit={handleSubmit}>
         <FormInput
@@ -35,7 +35,7 @@ export default function SignIn() {
           name='email'
           value={state.email}
           required
-          label='email'
+          label='Email'
           handleChange={handleChange}
         />
         <FormInput
@@ -43,11 +43,11 @@ export default function SignIn() {
           name='password'
           value={state.password}
           required
-          label='password'
+          label='Password'
           handleChange={handleChange}
         />
         <div className='buttons'>
-          <CustomButton type='submit'>Sign In</CustomButton>
+          <CustomButton type='submit'>Sign in</CustomButton>
           <CustomButton onClick={signInWithGoogle} isGoogleSignIn={true}>
             Sign in with Google
           </CustomButton>
