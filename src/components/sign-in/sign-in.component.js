@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FiChevronRight } from 'react-icons/fi'
+import { IoLogoGoogle } from 'react-icons/io'
 import './sign-in.styles.scss'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
@@ -47,9 +49,12 @@ export default function SignIn() {
           handleChange={handleChange}
         />
         <div className='buttons'>
-          <CustomButton type='submit'>Sign in</CustomButton>
+          <CustomButton type='submit'>
+            Sign in <FiChevronRight />
+          </CustomButton>
           <CustomButton onClick={signInWithGoogle} isGoogleSignIn={true}>
-            Sign in with Google
+            <IoLogoGoogle />
+            Continue
           </CustomButton>
         </div>
       </form>

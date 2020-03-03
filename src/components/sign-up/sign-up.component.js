@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FiChevronRight } from 'react-icons/fi'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
@@ -79,7 +80,9 @@ export default function SignUp() {
           label='Confirm password'
           required
         />
-        <CustomButton type='submit'>Sign up</CustomButton>
+        <CustomButton type='submit'>
+          Sign up <FiChevronRight />
+        </CustomButton>
       </form>
     </div>
   )

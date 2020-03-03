@@ -5,7 +5,7 @@
   letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 35px 0 35px;
-  font-size: 12px;
+  font-size: 15px;
   background-color: hsl(0, 5%, 18%);
   color: hsl(0, 0%, 80%);
   font-family: 'Open Sans', sans-serif;
@@ -14,6 +14,9 @@
   cursor: pointer;
   transition: background-color 250ms ease-in;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   &:hover {
     background-color: hsl(0, 5%, 39%);
